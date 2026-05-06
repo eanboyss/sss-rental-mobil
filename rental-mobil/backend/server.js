@@ -31,3 +31,4 @@ mongoose.connect(process.env.MONGO_URI)
   .catch((err) => {
     console.log("Gagal nyambung ke database:", err);
   });
+  export default app;
