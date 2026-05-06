@@ -9,7 +9,7 @@ const Payment = () => {
   useEffect(() => {
     const fetchMobil = async () => {
       try {
-        const response = await fetch('http://localhost:5000/api/mobil');
+        const response = await fetch('https://sss-rental-mobil.vercel.app/api/mobil');
         const data = await response.json();
         const mobilPilihan = data.find((m) => m._id === id);
         setMobil(mobilPilihan);
@@ -27,7 +27,7 @@ const Payment = () => {
     const currentUser = userStr ? JSON.parse(userStr) : null;
 
     try {
-      const response = await fetch(`http://localhost:5000/api/mobil/${id}/sewa`, {
+      const response = await fetch(`https://sss-rental-mobil.vercel.app/api/mobil/${id}/sewa`, {
         method: 'PUT',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ emailPenyewa: currentUser.email })

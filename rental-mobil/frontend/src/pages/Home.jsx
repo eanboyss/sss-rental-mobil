@@ -12,7 +12,7 @@ const Home = () => {
   useEffect(() => {
     const ambilDataMobil = async () => {
       try {
-        const response = await fetch('http://localhost:5000/api/mobil');
+        const response = await fetch('https://sss-rental-mobil.vercel.app/api/mobil');
         const data = await response.json();
         setDaftarMobil(data);
       } catch (error) {
@@ -36,7 +36,7 @@ const Home = () => {
     const konfirmasi = window.confirm(`Lu yakin mau ngembaliin ${namaMobil} ke garasi SSS?`);
     if (konfirmasi) {
       try {
-        const response = await fetch(`http://localhost:5000/api/mobil/${id}/kembali`, {
+        const response = await fetch(`https://sss-rental-mobil.vercel.app/api/mobil/${id}/kembali`, {
           method: 'PUT',
         });
         if (response.ok) {
@@ -56,7 +56,7 @@ const Home = () => {
     const konfirmasi = window.confirm(`AWAS BOS! Lu beneran mau ngapus ${namaMobil} dari garasi SSS secara permanen?`);
     if (konfirmasi) {
       try {
-        const response = await fetch(`http://localhost:5000/api/mobil/${id}`, {
+        const response = await fetch(`https://sss-rental-mobil.vercel.app/api/mobil/${id}`, {
           method: 'DELETE',
         });
         if (response.ok) {
