@@ -32,7 +32,7 @@ router.post('/login', async (req, res) => {
     if (email === 'admin@sss.com' && password === 'admin123') {
       return res.status(200).json({
         message: "Akses Dewa Diberikan!",
-        user: { nama: 'Bos SSS', email: 'admin@sss.com', role: 'admin' },
+        user: { nama: 'EANBOYSS', email: 'admin@sss.com', role: 'admin' },
         token: "token-admin-rahasia" // Dummy token buat UTS
       });
     }

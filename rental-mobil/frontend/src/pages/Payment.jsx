@@ -65,7 +65,7 @@ const Payment = () => {
         <div style={{ padding: '15px', border: '1px dashed #ffeb3b' }}>
           <p style={{ color: '#fff', margin: 0, fontWeight: 'bold' }}>TRANSFER KE BANK SSS:</p>
           <h2 style={{ color: '#ffeb3b', margin: '10px 0', letterSpacing: '2px' }}>BCA 123-456-7890</h2>
-          <p style={{ color: '#888', margin: 0, fontSize: '0.9rem' }}>A.N. BOS SSS RENTAL</p>
+          <p style={{ color: '#888', margin: 0, fontSize: '0.9rem' }}>A.N. EANBOYSS RENTAL</p>
         </div>
 
         <form onSubmit={handleBayar} style={{ display: 'flex', flexDirection: 'column', gap: '20px', marginTop: '10px' }}>
