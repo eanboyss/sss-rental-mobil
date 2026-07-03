@@ -2,13 +2,21 @@ import { useState } from 'react';
 import { useNavigate, Link } from 'react-router-dom';
 
 const Register = () => {
-  // 1. Tambahin 'no_hp' di state awal biar datanya nyambung
   const [formData, setFormData] = useState({ nama: '', no_hp: '', email: '', password: '' });
   const [errorMsg, setErrorMsg] = useState('');
   const navigate = useNavigate();
 
+  // FIX: Validasi biar no_hp cuma bisa diisi angka
   const handleInput = (e) => {
-    setFormData({ ...formData, [e.target.name]: e.target.value });
+    const { name, value } = e.target;
+    
+    if (name === 'no_hp') {
+      // Ngehapus semua karakter yang BUKAN angka (0-9)
+      const hanyaAngka = value.replace(/[^0-9]/g, '');
+      setFormData({ ...formData, [name]: hanyaAngka });
+    } else {
+      setFormData({ ...formData, [name]: value });
+    }
   };
 
   const handleRegister = async (e) => {
@@ -69,15 +77,18 @@ const Register = () => {
             />
           </div>
           
-          {/* NO. WHATSAPP (Udah dibenerin) */}
+          {/* NO. WHATSAPP (Udah dibenerin cuma bisa angka) */}
            <div style={{ display: 'flex', flexDirection: 'column', gap: '8px' }}>
             <label style={{ color: '#ffeb3b', fontWeight: 'bold', fontSize: '0.9rem', letterSpacing: '1px' }}>NO. WHATSAPP</label>
             <input 
               type="tel" 
               name="no_hp" 
               placeholder="0812xxxx..."
+              value={formData.no_hp} // <-- Ini penting biar efek regex-nya keliatan di layar
               onChange={handleInput} 
               required
+              inputMode="numeric" // <-- Biar di HP otomatis muncul numpad
+              pattern="[0-9]*"
               style={{ padding: '15px', backgroundColor: '#000', color: '#fff', border: '1px solid #444', outline: 'none' }} 
             />
           </div>
