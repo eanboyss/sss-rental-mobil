@@ -6,12 +6,10 @@ const Register = () => {
   const [errorMsg, setErrorMsg] = useState('');
   const navigate = useNavigate();
 
-  // FIX: Validasi biar no_hp cuma bisa diisi angka
   const handleInput = (e) => {
     const { name, value } = e.target;
     
     if (name === 'no_hp') {
-      // Ngehapus semua karakter yang BUKAN angka (0-9)
       const hanyaAngka = value.replace(/[^0-9]/g, '');
       setFormData({ ...formData, [name]: hanyaAngka });
     } else {
@@ -43,7 +41,7 @@ const Register = () => {
   return (
     <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', minHeight: '80vh', padding: '20px' }}>
       
-      {/* Kotak Register Style Grunge */}
+      {/* Kotak Register dikembalikan ke Style Grunge Asli */}
       <div style={{ 
         backgroundColor: '#111', 
         padding: '40px', 
@@ -55,6 +53,7 @@ const Register = () => {
         gap: '20px'
       }}>
         
+        {/* Header "JOIN THE CREW" Balik ke Normal */}
         <div style={{ borderBottom: '2px solid #333', paddingBottom: '10px', marginBottom: '10px' }}>
           <h2 style={{ fontSize: '2.5rem', margin: 0, color: '#fff' }}>JOIN THE CREW</h2>
           <p style={{ color: '#888', margin: '5px 0 0 0', textTransform: 'uppercase', fontSize: '0.9rem' }}>Bikin Akun Buat Sewa Mobil.</p>
@@ -64,32 +63,33 @@ const Register = () => {
 
         <form onSubmit={handleRegister} style={{ display: 'flex', flexDirection: 'column', gap: '20px' }}>
           
-          {/* NAMA LENGKAP */}
+          {/* NAMA LENGKAP - Kotak Putih Teks Hitam Biar Jelas */}
           <div style={{ display: 'flex', flexDirection: 'column', gap: '8px' }}>
             <label style={{ color: '#ffeb3b', fontWeight: 'bold', fontSize: '0.9rem', letterSpacing: '1px' }}>NAMA LENGKAP</label>
             <input 
               type="text" 
               name="nama" 
               placeholder="Nama tongkrongan lu..."
+              value={formData.nama}
               onChange={handleInput} 
               required
-              style={{ padding: '15px', backgroundColor: '#000', color: '#fff', border: '1px solid #444', outline: 'none' }} 
+              style={{ padding: '15px', backgroundColor: '#fff', color: '#000', border: '1px solid #ffeb3b', outline: 'none', fontWeight: 'bold' }} 
             />
           </div>
           
-          {/* NO. WHATSAPP (Udah dibenerin cuma bisa angka) */}
+          {/* NO. WHATSAPP */}
            <div style={{ display: 'flex', flexDirection: 'column', gap: '8px' }}>
             <label style={{ color: '#ffeb3b', fontWeight: 'bold', fontSize: '0.9rem', letterSpacing: '1px' }}>NO. WHATSAPP</label>
             <input 
               type="tel" 
               name="no_hp" 
               placeholder="0812xxxx..."
-              value={formData.no_hp} // <-- Ini penting biar efek regex-nya keliatan di layar
+              value={formData.no_hp} 
               onChange={handleInput} 
               required
-              inputMode="numeric" // <-- Biar di HP otomatis muncul numpad
+              inputMode="numeric" 
               pattern="[0-9]*"
-              style={{ padding: '15px', backgroundColor: '#000', color: '#fff', border: '1px solid #444', outline: 'none' }} 
+              style={{ padding: '15px', backgroundColor: '#fff', color: '#000', border: '1px solid #ffeb3b', outline: 'none', fontWeight: 'bold' }} 
             />
           </div>
 
@@ -100,9 +100,10 @@ const Register = () => {
               type="email" 
               name="email" 
               placeholder="email@jalan.com"
+              value={formData.email}
               onChange={handleInput} 
               required
-              style={{ padding: '15px', backgroundColor: '#000', color: '#fff', border: '1px solid #444', outline: 'none' }} 
+              style={{ padding: '15px', backgroundColor: '#fff', color: '#000', border: '1px solid #ffeb3b', outline: 'none', fontWeight: 'bold' }} 
             />
           </div>
 
@@ -113,15 +114,16 @@ const Register = () => {
               type="password" 
               name="password" 
               placeholder="Minimal 6 karakter"
+              value={formData.password}
               onChange={handleInput} 
               required
-              style={{ padding: '15px', backgroundColor: '#000', color: '#fff', border: '1px solid #444', outline: 'none' }} 
+              style={{ padding: '15px', backgroundColor: '#fff', color: '#000', border: '1px solid #ffeb3b', outline: 'none', fontWeight: 'bold' }} 
             />
           </div>
 
           <button type="submit" style={{ 
             padding: '18px', 
-            backgroundColor: '#fff', 
+            backgroundColor: '#ffeb3b', 
             color: '#000', 
             border: 'none', 
             fontWeight: '900', 

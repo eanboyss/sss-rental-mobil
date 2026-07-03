@@ -80,13 +80,16 @@ const Navbar = () => {
           // TAMPILAN KALAU BELUM LOGIN
           <>
             <Link to="/login" style={{ color: '#fff', textDecoration: 'none', fontWeight: 'bold' }}>LOGIN</Link>
+            
+            {/* 👇 INI YANG UDAH DIGANTI BIAR JELAS */}
             <Link to="/register" style={{ 
-              color: '#000', 
-              backgroundColor: '#fff',
+              color: '#fff', // Tulisan diubah jadi putih
+              backgroundColor: 'transparent', // Background putih dihapus
               textDecoration: 'none', 
               fontWeight: 'bold', 
-              border: '2px solid #333', 
-              padding: '8px 20px' 
+              border: '2px solid #ffeb3b', // Dikasih border kuning biar masuk tema
+              padding: '8px 20px',
+              textTransform: 'uppercase'
             }}>
               JOIN CREW
             </Link>
