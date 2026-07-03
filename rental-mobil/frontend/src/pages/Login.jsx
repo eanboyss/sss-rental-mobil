@@ -70,6 +70,8 @@ const Login = () => {
             />
           </div>
 
+          
+
           <div style={{ display: 'flex', flexDirection: 'column', gap: '8px' }}>
             <label style={{ color: '#ffeb3b', fontWeight: 'bold', fontSize: '0.9rem', letterSpacing: '1px' }}>PASSWORD</label>
             <input 

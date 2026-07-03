@@ -2,7 +2,8 @@ import { useState } from 'react';
 import { useNavigate, Link } from 'react-router-dom';
 
 const Register = () => {
-  const [formData, setFormData] = useState({ nama: '', email: '', password: '' });
+  // 1. Tambahin 'no_hp' di state awal biar datanya nyambung
+  const [formData, setFormData] = useState({ nama: '', no_hp: '', email: '', password: '' });
   const [errorMsg, setErrorMsg] = useState('');
   const navigate = useNavigate();
 
@@ -22,7 +23,7 @@ const Register = () => {
 
       if (response.ok) {
         alert('🔥 Welcome to the club! Akun berhasil dibuat. Gas login sekarang.');
-        navigate('/login'); // Otomatis dilempar ke halaman login
+        navigate('/login'); 
       } else {
         setErrorMsg(data.message || 'Gagal daftar, email mungkin udah kepake bos!');
       }
@@ -40,7 +41,7 @@ const Register = () => {
         padding: '40px', 
         width: '450px', 
         border: '2px solid #333', 
-        boxShadow: '-8px 8px 0px #ffeb3b', // Bayangannya gua balik ke kiri biar beda dikit dari login
+        boxShadow: '-8px 8px 0px #ffeb3b',
         display: 'flex',
         flexDirection: 'column',
         gap: '20px'
@@ -55,6 +56,7 @@ const Register = () => {
 
         <form onSubmit={handleRegister} style={{ display: 'flex', flexDirection: 'column', gap: '20px' }}>
           
+          {/* NAMA LENGKAP */}
           <div style={{ display: 'flex', flexDirection: 'column', gap: '8px' }}>
             <label style={{ color: '#ffeb3b', fontWeight: 'bold', fontSize: '0.9rem', letterSpacing: '1px' }}>NAMA LENGKAP</label>
             <input 
@@ -66,7 +68,21 @@ const Register = () => {
               style={{ padding: '15px', backgroundColor: '#000', color: '#fff', border: '1px solid #444', outline: 'none' }} 
             />
           </div>
+          
+          {/* NO. WHATSAPP (Udah dibenerin) */}
+           <div style={{ display: 'flex', flexDirection: 'column', gap: '8px' }}>
+            <label style={{ color: '#ffeb3b', fontWeight: 'bold', fontSize: '0.9rem', letterSpacing: '1px' }}>NO. WHATSAPP</label>
+            <input 
+              type="tel" 
+              name="no_hp" 
+              placeholder="0812xxxx..."
+              onChange={handleInput} 
+              required
+              style={{ padding: '15px', backgroundColor: '#000', color: '#fff', border: '1px solid #444', outline: 'none' }} 
+            />
+          </div>
 
+          {/* EMAIL */}
           <div style={{ display: 'flex', flexDirection: 'column', gap: '8px' }}>
             <label style={{ color: '#ffeb3b', fontWeight: 'bold', fontSize: '0.9rem', letterSpacing: '1px' }}>EMAIL</label>
             <input 
@@ -79,6 +95,7 @@ const Register = () => {
             />
           </div>
 
+          {/* PASSWORD */}
           <div style={{ display: 'flex', flexDirection: 'column', gap: '8px' }}>
             <label style={{ color: '#ffeb3b', fontWeight: 'bold', fontSize: '0.9rem', letterSpacing: '1px' }}>PASSWORD</label>
             <input 
