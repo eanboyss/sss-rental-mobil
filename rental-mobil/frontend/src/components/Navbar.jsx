@@ -51,6 +51,7 @@ const Navbar = () => {
             border: '2px solid #000' 
           }}>
             + TAMBAH ARMADA
+            + TAMBAH PENYEWA
           </Link>
         )}
       </div>
