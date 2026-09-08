@@ -5,6 +5,7 @@ import Login from './pages/Login';
 import Register from './pages/Register';
 import TambahMobil from './pages/TambahMobil';
 import Navbar from './components/Navbar'; // <-- Ini dia yang bikin Navbarnya pinter
+import { Analytics } from '@vercel/analytics/react';
 import './App.css';
 
 function App() {
@@ -23,6 +24,7 @@ function App() {
           <Route path="/tambah" element={<TambahMobil />} />
         </Routes>
       </div>
+      <Analytics />
     </Router>
   );
 }
